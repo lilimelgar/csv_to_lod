@@ -1,0 +1,9 @@
+@prefix ns1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+_:Nfa75f0d004e347fd955cf5e28e7e9334 {
+    <http://iisg.amsterdam/lipperziegler/OWL2010-01-L77A-4716-0002> ns1:identifier "OWL2010-01-L77A-4716-0002"^^xsd:string ;
+        ns1:transcribedAs "Vol I. Acta, die von den Ziegelboten j\\u00E4hrlich eingereicht werdenden Verzeichnisse der von ihnen angestellten Ziegelarbeiter betreffend, 1830-1841"^^xsd:string ;
+        ns1:url "<https://access.iisg.amsterdam/universalviewer/#?manifest=https://access.iisg.amsterdam/iiif/presentation/ARCH03497.3/manifest&cv=1>"^^xsd:string .
+}
+
