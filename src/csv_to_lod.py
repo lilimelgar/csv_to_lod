@@ -8,24 +8,32 @@ from rdflib.namespace import FOAF , XSD #most common namespaces
 import urllib.parse #for parsing strings to URI's
 import os # to work with paths
 
-## Read the csv file
-## with local paths: this is the local path to the raw data in your own computer to where you downloaded/cloned the repository"
-data_directory = os.path.abspath(os.path.join('..', 'data'))
-data_raw_directory = os.path.join(data_directory, 'raw')
-data_processed_directory = os.path.join(data_directory, 'processed')
-data_temp_directory = os.path.join(data_directory, 'temp')
-raw_file_path = os.path.join(data_raw_directory, 'test_page-transcript.csv') 
-df = pd.read_csv(raw_file_path, sep=';', quotechar='"')
+######## 1. DEFINE PATHS TO DATA ###########################
+## enter path to my local data folder:
+sprintNo = input('sprintNo\n')
+data_directory = f'/Users/lme/Library/CloudStorage/Dropbox/docs_work_latest/SPRINTS/{sprintNo}/data'
+data_raw_directory = f'{data_directory}/raw/'
+data_processed_directory = f'{data_directory}/output/'
+data_temp_directory = f'{data_directory}/temp'
+
+# # ## with local paths: this is the local path to the raw data in your own computer to where you downloaded/cloned the repository"
+# # data_directory = os.path.abspath(os.path.join('..', 'data'))
+# # data_raw_directory = os.path.join(data_directory, 'raw')
+# # data_processed_directory = os.path.join(data_directory, 'processed')
+# # data_temp_directory = os.path.join(data_directory, 'temp')
+
+## fetching data from url
+## url='https://raw.githubusercontent.com/KRontheWeb/csv2rdf-tutorial/master/example.csv'
+## raw_df_ = pd.read_csv(url)
+
+######## 2. READ RAW CSV ####################################################################
+# df = pd.read_csv(f'{data_raw_directory}lippische_ziegler_folia_interpretations_aggregated_all_signaturen.csv', sep=',', quotechar='"')
+df = pd.read_csv(f'{data_raw_directory}test_page-transcript.csv', sep=';', quotechar='"')
 # print(df.head())
-# print(df.columns)
-# print(df.info())
+# # print(df.columns)
+# # print(df.info())
 
-# # ## fetching data from url
-# # # url='https://raw.githubusercontent.com/KRontheWeb/csv2rdf-tutorial/master/example.csv'
-# # raw_df_ = pd.read_csv(raw_file_path)
-# # print(raw_df_)
-
-# Define a graph 'g' and namespaces
+######## 3. DEFINE A GRAPH 'G' AND NAMESPACES ###############################################
 g = Graph()
 iisgvoc = Namespace('https://iisg.amsterdam/id/lipperziegler/')
 # schema = Namespace('')
@@ -34,19 +42,19 @@ schema = Namespace('https://schema.org/')
 # imId = Namespace('https://iisg.amsterdam/id/lipperziegler/vocab/')
 # lippeSchema = Namespace('https://iisg.amsterdam/id/lipperziegler/')
 
-# #from tutorial
-# ppl = Namespace('http://example.org/people/')
-# loc = Namespace('http://mylocations.org/addresses/')
-# schema = Namespace('http://schema.org/')
+# # # #from tutorial
+# # # ppl = Namespace('http://example.org/people/')
+# # # loc = Namespace('http://mylocations.org/addresses/')
+# # # schema = Namespace('http://schema.org/')
 
-## Create the triples and add them to graph 'g'
-# #It's a bit dense, but each g.add() consists of three parts: 
-# #subject, predicate, object. 
-# #For more info, check the really friendly rdflib documentation, section 1.1.3 onwards at https://buildmedia.readthedocs.org/media/pdf/rdflib/latest/rdflib.pdf
-# # Note that:
-#     # I borrow namespaces from rdflib and create some myself;
-#     # It is good practice to define the datatype whenever you can;
-#     # I create URI's from the addresses (example of string handling).
+######## 4. CREATE THE TRIPLES AND ADD THEM TO GRAPH 'G' ####################################
+#It's a bit dense, but each g.add() consists of three parts: 
+#subject, predicate, object. 
+#For more info, check the really friendly rdflib documentation, section 1.1.3 onwards at https://buildmedia.readthedocs.org/media/pdf/rdflib/latest/rdflib.pdf
+# Note that:
+    # I borrow namespaces from rdflib and create some myself;
+    # It is good practice to define the datatype whenever you can;
+    # I create URI's from the addresses (example of string handling).
 ## From example
 # for index, row in df.iterrows():
 #     g.add((URIRef(ppl+row['Name']), RDF.type, FOAF.Person))
@@ -58,17 +66,21 @@ schema = Namespace('https://schema.org/')
 for index, row in df.iterrows():
     
     # add image Id: subject (it's what I am describing, with a URI in the namespace of iisg), predicate (it's the property in the namespace schema.org), object (it's the string of the Id)
-    g.add((URIRef(iisgvoc+row['imageId']), URIRef(schema+'identifier'), Literal(row['imageId'], datatype=XSD.string) ))
+    g.add((URIRef(iisgvoc+row['file_Id_old']), URIRef(iisgvoc+'vocab/id'), Literal(row['file_Id_old'], datatype=XSD.string)))
 
     # add transcript: subject (it's what I am describing: the image), predicate (it's the property transcription in the namespace schema.org), object (it's the string of the transcription)
-    g.add((URIRef(iisgvoc+row['imageId']), URIRef(schema+'transcript'), Literal(row['transcription'], datatype=XSD.string) ))
+    # g.add((URIRef(iisgvoc+row['imageId']), URIRef(schema+'transcript'), Literal(row['transcription'], datatype=XSD.string)))
+    g.add((URIRef(iisgvoc+row['file_Id_old']), URIRef(iisgvoc+'transcribedAs'), Literal(row['content'], datatype=XSD.string)))
 
     # add url to the scan: subject (it's what I am describing: the image), predicate (it's the property url in the namespace schema.org), object (it's the url to the image)
-    g.add((URIRef(iisgvoc+row['imageId']), URIRef(schema+'url'), Literal(row['imageUrl'], datatype=XSD.string) ))
+    # g.add((URIRef(iisgvoc+row['imageId']), URIRef(iisgvoc+'vocab/cv'), URIRef(row['imageUrl'])))
+    g.add((URIRef(iisgvoc+row['file_Id_old']), URIRef(iisgvoc+'vocab/cv'), URIRef(row['page_scan_url'])))
 
-# Check the results
-print(g.serialize(format='nt'))
+# # Check the results
+# print(g.serialize(format='nt', encoding='utf-8'))
 
 # # Save the results to disk
 # g.serialize('mycsv2rdf.ttl',format='turtle') ##from tutorial
-g.serialize('csvlippe2rdf_test5.nt',format='ntriples')
+# g.serialize(f'{data_processed_directory}test20.nt',format='ntriples', encoding='UTF-8')
+g.serialize(f'{data_processed_directory}csvtordf_ziegler_folia_interpretations_v1.nt',format='turtle', encoding='UTF-8')
+print("done")
