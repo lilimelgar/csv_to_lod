@@ -1,0 +1,113 @@
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <https://iisg.amsterdam/vocab/data/lippe/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Bachhorn> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Bachhorn"^^xsd:string ;
+    ns1:representedBy "Bachhorn"^^xsd:string ;
+    schema:name "Bachhorn"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554729.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Boitwarden> geo:asWKT "MULTIPOINT (8.4766666666667 53.343055555556)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Boitwarden"^^xsd:string ;
+    ns1:representedBy "Boitwarden"^^xsd:string ;
+    schema:name "Boitwarden"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554727.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Brunsbuettel> geo:asWKT "MULTIPOINT (9.1386111111111 53.896388888889)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Brunsbuettel"^^xsd:string ;
+    ns1:representedBy "Brunsbuettel"^^xsd:string ;
+    schema:name "Brunsbuettel"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554739.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Dedesdorf> geo:asWKT "MULTIPOINT (8.50333 53.4472)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Dedesdorf"^^xsd:string ;
+    ns1:representedBy "Dedesdorf"^^xsd:string ;
+    schema:name "Dedesdorf"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554730.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Grafeld> geo:asWKT "MULTIPOINT (7.67444 52.6242)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Grafeld"^^xsd:string ;
+    ns1:representedBy "Grafeld"^^xsd:string ;
+    schema:name "Grafeld"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554740.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Kirgosten> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Kirgosten"^^xsd:string ;
+    ns1:representedBy "Kirgosten"^^xsd:string ;
+    schema:name "Kirgosten"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554738.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Klipkanne> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Klipkanne"^^xsd:string ;
+    ns1:representedBy "Klipkanne"^^xsd:string ;
+    schema:name "Klipkanne"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554725.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Lanhausen> geo:asWKT "MULTIPOINT (8.583805555555555 53.48226666666667)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Lanhausen"^^xsd:string ;
+    ns1:representedBy "Lanhausen"^^xsd:string ;
+    schema:name "Lanhausen"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554732.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Nordorf> geo:asWKT "MULTIPOINT (8.3333333333333 54.683333333333)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Nordorf"^^xsd:string ;
+    ns1:representedBy "Nordorf"^^xsd:string ;
+    schema:name "Nordorf"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554737.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Oberndorf> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Oberndorf"^^xsd:string ;
+    ns1:representedBy "Oberndorf"^^xsd:string ;
+    schema:name "Oberndorf"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/nulldetail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Oldenburg> geo:asWKT "MULTIPOINT (8.21706 53.14068)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Oldenburg"^^xsd:string ;
+    ns1:representedBy "Oldenburg"^^xsd:string ;
+    schema:name "Oldenburg"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554723.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Rahstede> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Rahstede"^^xsd:string ;
+    ns1:representedBy "Rahstede"^^xsd:string ;
+    schema:name "Rahstede"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554724.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Sandstedt> geo:asWKT "MULTIPOINT (8.517013888888888 53.361)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Sandstedt"^^xsd:string ;
+    ns1:representedBy "Sandstedt"^^xsd:string ;
+    schema:name "Sandstedt"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554736.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Strohausen> geo:asWKT "MULTIPOINT (8.4617 53.4075)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Strohausen"^^xsd:string ;
+    ns1:representedBy "Strohausen"^^xsd:string ;
+    schema:name "Strohausen"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554726.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Swegen> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Swegen"^^xsd:string ;
+    ns1:representedBy "Swegen"^^xsd:string ;
+    schema:name "Swegen"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554733.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Ueterlande> geo:asWKT "MULTIPOINT (8.549580555555556 53.47888611111111)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Ueterlande"^^xsd:string ;
+    ns1:representedBy "Ueterlande"^^xsd:string ;
+    schema:name "Ueterlande"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554731.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Wegleij> geo:asWKT "MULTIPOINT (0.00000 0.00000)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Wegleij"^^xsd:string ;
+    ns1:representedBy "Wegleij"^^xsd:string ;
+    schema:name "Wegleij"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554728.0detail> .
+
+<https://iisg.amsterdam/vocab/data/lippe/id/4698/wohin/Welle> geo:asWKT "MULTIPOINT (9.8019993 53.2384543)"^^geo:wktLiteral ;
+    ns1:identifier "4698/wohin/Welle"^^xsd:string ;
+    ns1:representedBy "Welle"^^xsd:string ;
+    schema:name "Welle"^^xsd:string ;
+    schema:sameAs <https://whgazetteer.org/places/7554734.0detail> .
+
