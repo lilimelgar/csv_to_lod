@@ -1,33 +1,22 @@
 # this script is made based on the instructions given in this
-# website: https://stackoverflow.com/questions/43524943/creating-rdf-file-using-csv-file-as-input/61445967#61445967
-# this script converts a csv file to RDF
+# tutorial: https://stackoverflow.com/questions/43524943/creating-rdf-file-using-csv-file-as-input/61445967#61445967
+# this script converts a csv file to RDF using rdflib library
 
 import pandas as pd #for handling csv and csv contents
 from rdflib import Graph, Literal, RDF, URIRef, Namespace #basic RDF handling
-from rdflib.namespace import FOAF , XSD #most common namespaces
+from rdflib.namespace import XSD #most common namespaces
 import urllib.parse #for parsing strings to URI's
 import os # to work with paths
+import uuid
 
 ######## 1. DEFINE PATHS TO DATA ###########################
-## enter path to my local data folder:
-sprintNo = input('sprintNo\n')
-data_directory = f'/Users/lme/Library/CloudStorage/Dropbox/docs_work_latest/SPRINTS/{sprintNo}/data'
-data_raw_directory = f'{data_directory}/raw/'
-data_processed_directory = f'{data_directory}/output/'
-data_temp_directory = f'{data_directory}/temp'
-
-# # ## with local paths: this is the local path to the raw data in your own computer to where you downloaded/cloned the repository"
-# # data_directory = os.path.abspath(os.path.join('..', 'data'))
-# # data_raw_directory = os.path.join(data_directory, 'raw')
-# # data_processed_directory = os.path.join(data_directory, 'processed')
-# # data_temp_directory = os.path.join(data_directory, 'temp')
-
-## fetching data from url
-## url='https://raw.githubusercontent.com/KRontheWeb/csv2rdf-tutorial/master/example.csv'
-## raw_df_ = pd.read_csv(url)
+data_directory = os.path.abspath(os.path.join('..', 'data'))
+data_raw_directory = os.path.join(data_directory, 'raw')
+data_processed_directory = os.path.join(data_directory, 'processed')
+data_temp_directory = os.path.join(data_directory, 'temp')
 
 ######## 2. READ RAW CSV ####################################################################
-# df = pd.read_csv(f'{data_raw_directory}lippische_ziegler_folia_interpretations_aggregated_all_signaturen.csv', sep=',', quotechar='"')
+# the file we are converting to LOD is a csv file deposited in Dataverse, where this dataset: https://hdl.handle.net/10622/1RNBFT contains both files (the original csv and the converted lod (output of this script))
 df = pd.read_csv(f'{data_raw_directory}test_page-transcript.csv', sep=';', quotechar='"')
 # print(df.head())
 # # print(df.columns)
