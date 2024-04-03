@@ -1,6 +1,8 @@
-# this script is made based on the instructions given in this
-# tutorial: https://stackoverflow.com/questions/43524943/creating-rdf-file-using-csv-file-as-input/61445967#61445967
+# This script is made based on the instructions given in this
+# tutorial by Richard Zijdeman: https://stackoverflow.com/questions/43524943/creating-rdf-file-using-csv-file-as-input/61445967#61445967
 # this script converts a csv file to RDF using rdflib library
+# written by Liliana Melgar, also available in this Github repository: https://github.com/lilimelgar/csv_to_lod. 
+# Latest update: April 2, 2024.
 
 import pandas as pd #for handling csv and csv contents
 from rdflib import Graph, Literal, RDF, URIRef, Namespace #basic RDF handling
