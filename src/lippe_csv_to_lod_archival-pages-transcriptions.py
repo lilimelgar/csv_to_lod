@@ -13,7 +13,7 @@ import uuid
 
 ######## 1. DEFINE PATHS TO DATA ###########################
 data_directory = os.path.abspath(os.path.join('..', 'data'))
-data_raw_directory = os.path.join(data_directory, 'raw')
+data_raw_directory = os.path.join(data_directory, 'raw') # this directory contains the files as downloaded from Dataverse
 data_processed_directory = os.path.join(data_directory, 'processed')
 data_temp_directory = os.path.join(data_directory, 'temp')
 
@@ -47,20 +47,27 @@ schema = Namespace('https://schema.org/')
 
 ######## 5. CREATE THE TRIPLES AND ADD THEM TO GRAPH 'G' ####################################
 for index, row in df.iterrows():
+    # create the triples for the main types
+    # type File (this is the scanned page)
+    g.add((URIRef(lippevoc+'File/'+row['file_Id']), RDF.type, sdo.ImageObject))
+    # type Signature (this is the inventory number in the original archive in Germany)
+    g.add((URIRef(lippevoc+'Signature/'+row['signatur']), RDF.type, sdo.ArchiveComponent))
+    ###
+    # create the triples for the properties
     # create a triple for the image/scan Id
-    g.add((URIRef(lippevoc+row['file_Id']), URIRef(lippevoc+'file_Id'), Literal(row['file_Id'], datatype=XSD.string)))
+    g.add((URIRef(lippevoc+'File/'+row['file_Id']), URIRef(sdo.identifier), Literal(row['file_Id'], datatype=XSD.string)))
     # create a triple for the "signatur"
-    g.add((URIRef(lippevoc+row['file_Id']), URIRef(lippevoc+'is_part_of'), URIRef(lippevoc+row['signatur'])))
-    # create a triple for the "signatur" to connect to the page scans
-    g.add((URIRef(lippevoc+row['signatur']), URIRef(lippevoc+'has_file'), URIRef(lippevoc+row['file_Id'])))
-    # create a triple for the "signatur" as literal
-    g.add((URIRef(lippevoc+row['signatur']), URIRef(lippevoc+'has_signatur'), Literal(row['signatur'])))
-    # create a triple for the "inventory number"
-    g.add((URIRef(lippevoc+row['signatur']), URIRef(lippevoc+'has_inventory_number'), Literal(row['inventory_number'])))
+    g.add((URIRef(lippevoc+'File/'+row['file_Id']), URIRef(sdo.isPartOf), URIRef(lippevoc+'Signature/'+row['signatur'])))
     # create a triple for the string of the transcription
-    g.add((URIRef(lippevoc+row['file_Id']), URIRef(lippevoc+'transcribedAs'), Literal(row['transcription'], datatype=XSD.string)))
+    g.add((URIRef(lippevoc+'File/'+row['file_Id']), URIRef(sdo.transcript), Literal(row['transcription'], datatype=XSD.string)))
     # add url to the scan: subject (it's what I am describing: the image), predicate (it's the property url in the namespace schema.org), object (it's the url to the image)
-    g.add((URIRef(lippevoc+row['file_Id']), URIRef(lippevoc+'page_scan_url'), URIRef(row['page_scan_url'])))
+    g.add((URIRef(lippevoc+'File/'+row['file_Id']), URIRef(sdo.url), URIRef(row['page_scan_url'])))
+    # create a triple for the "signatur" Id as literal
+    g.add((URIRef(lippevoc+'Signature/'+row['signatur']), URIRef(sdo.identifier), Literal(row['signatur'], datatype=XSD.string)))
+    # create a triple for the "signatur" to connect to the page scans
+    g.add((URIRef(lippevoc+'Signature/'+row['signatur']), URIRef(sdo.hasPart), URIRef(lippevoc+'File/'+row['file_Id'])))
+    # create a triple for the "inventory number"
+    g.add((URIRef(lippevoc+'Signature/'+row['signatur']), URIRef(lippevoc+'has_inventory_number'), Literal(row['inventory_number'], datatype=XSD.string)))
 
 # # Check the results
 # print(g.serialize(format='nt', encoding='utf-8'))
