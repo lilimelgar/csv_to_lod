@@ -8,3 +8,9 @@ data/raw/lippe_brickmakers_database_with_geodata_sample.csv
 data/raw/lippe-archival-pages-transcriptions_test.csv
 data/raw/lippe-archival-pages-transcriptions.csv
 data/processed/lippe_brickmakers_database_with_geodata_sample_as_LOD.nt
+data/processed/lippe_brickmakers_database_with_geodata_sample_as_LOD.nt
+data/raw/lippe_brickmakers_database_with_geodata_sample.csv
+data/raw/lippe-archival-pages-transcriptions_test.csv
+data/raw/lippe-archival-pages-transcriptions.csv
+data/raw/simple_test.csv
+data/raw/test_with_coordinates_j144_j259_lipper_ziegler_database_folia_links_added.csv
